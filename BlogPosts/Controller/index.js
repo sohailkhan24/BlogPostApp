@@ -44,11 +44,8 @@ app.get('/NewBlog',function(req,res){
 });
 
 app.post('/newblog',function(req,res){
-    blogs.push({
-        Blogtitle:req.body.Blogtitle,
-        Blogcategory:req.body.Blogcategory,
-        Blogcontent:req.body.Blogcontent
-    })
+    
+    blogs.push(req.body);
     return res.redirect('/');
 });
 

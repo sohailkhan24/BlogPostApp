@@ -1,10 +1,21 @@
 <html>
     <head>
         <title>
+            <%= title%>
 
         </title>
     </head>
     <body>
-        <h1>From ejs</h1>
+        <h1>Blog Index</h1>
+        <ul>
+            <%for(let i of blogs){%>
+            <li>
+                <p><%=i.Blogtitle%></p>
+                <p><%=i.Blogcategory%></p>
+                <p><%=i.Blogcontent%></p>
+            </li>
+            <%}%>
+           
+        </ul>
     </body>
 </html>

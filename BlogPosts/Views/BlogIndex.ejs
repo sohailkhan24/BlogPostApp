@@ -4,6 +4,7 @@
             <%= title%>
 
         </title>
+        
     </head>
     <body>
         <h1>Blog Index</h1>
@@ -13,9 +14,14 @@
                 <p><%=i.Blogtitle%></p>
                 <p><%=i.Blogcategory%></p>
                 <p><%=i.Blogcontent%></p>
+                <p><a href="/delete-blog?=BlogTitle=<%i.Blogtitle%>"><i class="fas fa-trash-alt"></i></a></p>
             </li>
             <%}%>
            
         </ul>
+        <script
+      src="https://kit.fontawesome.com/f77abb2def.js"
+      crossorigin="anonymous"
+    ></script>
     </body>
 </html>

@@ -5,9 +5,11 @@ const port = 8000;
 const app = express();
 
 
+//Middlewares
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'../views'));
 app.use(express.urlencoded({extended:true}));
+app.use(express.static('Assets'));
 
 //blogs
 var blogs=[
@@ -30,6 +32,16 @@ app.get('/',function(req,res){
     });
 });
 
+//delete  blog controller
+app.get('/delete-blog/',function(req,res){
+    let title=req.query.Blogtitle;
+    let blogtitleIndex=blogs.findIndex(blog => blog.title === title);
+    if(blogtitleIndex !=1){
+        blogs.splice(blogtitleIndex,1);
+    }
+    return res.redirect('/');
+
+});
 
 
 //blogDetails controller
@@ -43,11 +55,12 @@ app.get('/NewBlog',function(req,res){
     return res.render('NewBlog',{ title:"New Blog"});
 });
 
+//newblog post request controller
 app.post('/newblog',function(req,res){
-    
     blogs.push(req.body);
     return res.redirect('/');
 });
+
 
 
 

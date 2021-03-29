@@ -1,20 +1,24 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
-  blogtitle: {
+  title: {
     type: String,
     required: true,
   },
-  blogcategory: {
+  category: {
     type: String,
     required: true,
   },
-  blogcontent: {
+  content: {
     type: String,
     required: true,
+  },
+  created: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-const Contact = mongoose.model("Contact", contactSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
-module.exports = Contact;
+module.exports = Blog;
